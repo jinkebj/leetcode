@@ -1,0 +1,14 @@
+{
+    "links": {
+        "sidebar": {
+            "Custom link name": false
+        },
+        "sharing": {
+            "google": false,
+            "facebook": false,
+            "twitter": false,
+            "weibo": false,
+            "all": false
+        }
+    }
+}
