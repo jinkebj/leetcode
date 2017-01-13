@@ -16,15 +16,19 @@ Note:
 ```java
 public class Solution {
     public boolean isPalindrome(String s) {
+        if (s == null) return false;
+
         String ns = s.toLowerCase();
         int i = 0;
         int j = ns.length() - 1;
 
         while (i < j) {
-            if (!Character.isLetterOrDigit(ns.charAt(i))) i++;
-            else if (!Character.isLetterOrDigit(ns.charAt(j))) j--;
-            else if (ns.charAt(i) != ns.charAt(j)) return false;
-            else {
+            while (i < j && !Character.isLetterOrDigit(ns.charAt(i))) i++;
+            while (i < j && !Character.isLetterOrDigit(ns.charAt(j))) j--;
+
+            if (ns.charAt(i) != ns.charAt(j)) {
+                return false;
+            } else {
                 i++;
                 j--;
             }
@@ -39,8 +43,11 @@ public class Solution {
 ```java
 public class Solution {
     public boolean isPalindrome(String s) {
+        if (s == null) return false;
+
         String actual = s.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
-        String rev = new StringBuffer(actual).reverse().toString();
+        String rev = new StringBuilder(actual).reverse().toString();
+
         return actual.equals(rev);
     }
 }

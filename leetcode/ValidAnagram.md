@@ -17,13 +17,13 @@ You may assume the string contains only lowercase alphabets.
 对于t， 同样将其遍历，对每个出现的字符计数减一。
 如果s和t是anagram， 那么最后的charcount数组中所有字符的计数都应该是0， 否则就不是anagram。
 
-
 **Java:**
 ```java
 public class Solution {
     public boolean isAnagram(String s, String t) {
-        int[] charCount = new int[26];
+        if (s == null || t == null) return false;
 
+        int[] charCount = new int[26];
         for (int i = 0; i < s.length(); i++) {
             charCount[s.charAt(i) - 'a']++;
         }
@@ -32,8 +32,8 @@ public class Solution {
             charCount[t.charAt(i) - 'a']--;
         }
 
-        for (int i = 0; i < charCount.length; i++) {
-            if (charCount[i] != 0) return false;
+        for (int i : charCount) {
+            if (i != 0) return false;
         }
 
         return true;

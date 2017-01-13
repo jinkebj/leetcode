@@ -8,6 +8,7 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 ```java
 public class Solution {
     public boolean isValid(String s) {
+        if (s == null) return false;
         Deque<Character> stack = new ArrayDeque();
 
         for (int i = 0; i < s.length(); i++) {
