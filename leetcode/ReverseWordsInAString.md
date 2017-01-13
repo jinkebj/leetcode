@@ -8,7 +8,7 @@ For example,
     return "blue is sky the".
 
 **Java: (use String.split)**
-```
+```java
 public class Solution {
     public String reverseWords(String s) {
         if (s == null) return null;

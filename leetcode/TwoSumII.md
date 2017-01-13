@@ -13,7 +13,7 @@ You may assume that each input would have exactly one solution.
 ```java
 public class Solution {
         public int[] twoSum(int[] nums, int target) {
-        if (nums == null) return null;
+        if (nums == null || nums.length < 2) return null;
 
         int left = 0;
         int right = nums.length - 1;
