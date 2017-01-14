@@ -21,8 +21,8 @@ Follow up:
 ```java
 public class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
-        HashMap<Integer, Integer> numMap = new HashMap<Integer, Integer>();
-        ArrayList<Integer> interset = new ArrayList<Integer>();
+        Map<Integer, Integer> numMap = new HashMap<Integer, Integer>();
+        List<Integer> interset = new ArrayList<Integer>();
 
         for (int i = 0; i < nums1.length; i++) {
             if (numMap.containsKey(nums1[i])) numMap.put(nums1[i], numMap.get(nums1[i]) + 1);
