@@ -6,7 +6,17 @@ The order of elements can be changed. It doesn't matter what you leave beyond th
 
 **Java:**
 ```java
+public class Solution {
+    public int removeElement(int[] nums, int val) {
+        int ret = 0;
 
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) nums[ret++] = nums[i];
+        }
+
+        return ret;
+    }
+}
 ```
 
 **C++:**
