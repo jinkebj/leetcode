@@ -19,6 +19,13 @@ Notes:
   - You may assume there are no cycles anywhere in the entire linked structure.
   - Your code should preferably run in O(n) time and use only O(1) memory.
 
+**Analysis:**
+```
+Route1: a1 -> a2 -> c1 -> c2 -> c3 -> (connect to)b1 -> b2 -> b3 -> c1
+Route2: b1 -> b2 -> b3 -> c1 -> c2 -> c3 -> (connect to)a1 -> a2 -> c1
+Route1 & Route2 will meet after second iteration
+```
+
 **Java:**
 ```java
 /**

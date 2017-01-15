@@ -5,6 +5,24 @@ Given a linked list, return the node where the cycle begins. If there is no cycl
 Follow up:
 Can you solve it without using extra space?
 
+**Analysis:**
+```
+(CIRCLE-START-POINT)
+           |
+---A--->---@---------->-----
+           |               |
+           |               |
+           C               B
+           |               |
+           |-<-----@----<--|
+                   |
+              (MEET-POINT)
+```
+Suppose fast point meet slow point at 2nd loop:
+
+    A + B + C + B = 2 * (A + B)
+    So: A = C
+
 **Java:**
 ```java
 /**
@@ -28,14 +46,15 @@ public class Solution {
             fast = fast.next.next;
 
             if (slow == fast) {
-                ListNode slow2 = head;
-                while (slow != slow2) {
+                ListNode start = head;
+                while (start != slow) {
+                    start = start.next;
                     slow = slow.next;
-                    slow2 = slow2.next;
                 }
                 return slow;
             }
         }
+
         return null;
     }
 }

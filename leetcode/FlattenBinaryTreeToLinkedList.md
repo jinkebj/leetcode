@@ -27,7 +27,7 @@ Given a binary tree, flatten it to a linked list in-place.
                 \
                  6
 
-**Java:**
+**Java: (iterative)**
 ```java
 /**
  * Definition for a binary tree node.
@@ -42,19 +42,45 @@ public class Solution {
     public void flatten(TreeNode root) {
         if (root == null) return;
 
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Deque<TreeNode> stack = new LinkedList<TreeNode>();
         stack.push(root);
 
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
 
             if (node.right != null) stack.push(node.right);
             if (node.left != null) stack.push(node.left);
 
             node.left = null;
-            if (!stack.empty()) node.right = stack.peek();
+            if (!stack.isEmpty()) node.right = stack.peek();
         }
     }
+}
+```
+
+**Java: (recursive)**
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public void flatten(TreeNode root) {
+        if (root == null) return;
+
+        flatten(root.right);
+        flatten(root.left);
+        root.right = prev;
+        root.left = null;
+        prev = root;
+    }
+
+    private TreeNode prev = null;
 }
 ```
 
