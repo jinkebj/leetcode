@@ -28,22 +28,23 @@ Note: Recursive solution is trivial, could you do it iteratively?
  * }
  */
 public class Solution {
-    public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> ret = new ArrayList<Integer>();
-        if (root == null) return ret;
+   public List<Integer> preorderTraversal(TreeNode root) {
+       List<Integer> ret = new LinkedList<Integer>();
+       Deque<TreeNode> stack = new LinkedList<TreeNode>();
+       TreeNode node = root;
 
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        stack.push(root);
+       while (!stack.isEmpty() || node != null) {
+           if (node != null) {
+               stack.push(node);
+               ret.add(node.val);
+               node = node.left;
+           } else {
+               node = stack.pop().right;
+           }
+       }
 
-        while (!stack.empty()) {
-            TreeNode node = stack.pop();
-            ret.add(node.val);
-            if (node.right != null) stack.push(node.right);
-            if (node.left != null) stack.push(node.left);
-        }
-
-        return ret;
-    }
+       return ret;
+   }
 }
 ```
 
@@ -59,23 +60,22 @@ public class Solution {
  * }
  */
 public class Solution {
-    public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> ret = new LinkedList<Integer>();
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode node = root;
+   public List<Integer> preorderTraversal(TreeNode root) {
+       List<Integer> ret = new LinkedList<Integer>();
+       if (root == null) return ret;
 
-        while (!stack.empty() || node != null) {
-            if (node != null) {
-                stack.push(node);
-                ret.add(node.val);
-                node = node.left;
-            } else {
-                node = stack.pop().right;
-            }
-        }
+       Deque<TreeNode> stack = new LinkedList<TreeNode>();
+       stack.push(root);
 
-        return ret;
-    }
+       while (!stack.isEmpty()) {
+           TreeNode node = stack.pop();
+           ret.add(node.val);
+           if (node.right != null) stack.push(node.right);
+           if (node.left != null) stack.push(node.left);
+       }
+
+       return ret;
+   }
 }
 ```
 

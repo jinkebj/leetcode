@@ -68,17 +68,15 @@ public class Solution {
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            List<Integer> value = new ArrayList<Integer>();
+            List<Integer> levelValues = new ArrayList<Integer>();
             int size = queue.size();
-
             while (size-- > 0) {
                 TreeNode node = queue.poll();
-                value.add(node.val);
-
+                levelValues.add(node.val);
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);
             }
-            ret.add(value);
+            ret.add(levelValues);
         }
 
         return ret;

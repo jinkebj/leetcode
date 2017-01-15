@@ -69,32 +69,32 @@ public class Solution {
  * }
  */
 public class Solution {
-    public int maxDepth(TreeNode root) {
-        int ret = 0;
-        if (root == null) return ret;
+   public int maxDepth(TreeNode root) {
+       int ret = 0;
+       if (root == null) return ret;
 
-        Stack<TreeNode> nodeStack = new Stack<TreeNode>();
-        Stack<Integer> depthStack = new Stack<Integer>();
-        nodeStack.push(root);
-        depthStack.push(1);
+       Deque<TreeNode> nodeStack = new LinkedList<TreeNode>();
+       Deque<Integer> depthStack = new ArrayDeque<Integer>();
+       nodeStack.push(root);
+       depthStack.push(1);
 
-        while (!nodeStack.isEmpty()) {
-            TreeNode node = nodeStack.pop();
-            int depth = depthStack.pop();
-            ret = Math.max(ret, depth);
+       while (!nodeStack.isEmpty()) {
+           TreeNode node = nodeStack.pop();
+           int depth = depthStack.pop();
+           ret = Math.max(ret, depth);
 
-            if (node.left != null) {
-                nodeStack.push(node.left);
-                depthStack.push(depth + 1);
-            }
+           if (node.left != null) {
+               nodeStack.push(node.left);
+               depthStack.push(depth + 1);
+           }
 
-            if (node.right != null) {
-                nodeStack.push(node.right);
-                depthStack.push(depth + 1);
-            }
-        }
+           if (node.right != null) {
+               nodeStack.push(node.right);
+               depthStack.push(depth + 1);
+           }
+       }
 
-        return ret;
-    }
+       return ret;
+   }
 }
 ```

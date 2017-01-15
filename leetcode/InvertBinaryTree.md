@@ -16,7 +16,7 @@ to
      / \   / \
     9   6 3   1
 
-**Java: (Depth-first Search)**
+**Java: (recursive)**
 ```java
 /**
  * Definition for a binary tree node.
@@ -58,11 +58,11 @@ public class Solution {
     public TreeNode invertTree(TreeNode root) {
         if (root == null) return null;
 
-        final Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            final TreeNode node = queue.poll();
+            TreeNode node = queue.poll();
 
             TreeNode temp = node.left;
             node.left = node.right;

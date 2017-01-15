@@ -16,6 +16,16 @@ For example:
 
 Note: Recursive solution is trivial, could you do it iteratively?
 
+**Analysis:**
+```
+Post order traversal is similar with pre order traversal,
+the only difference is, we use the following access sequence:
+    root -> right -> left
+and every time put the element to the beginning of list.
+Then the content in list became:
+    left -> right -> root
+```
+
 **Java:**
 ```java
 /**
@@ -30,13 +40,13 @@ Note: Recursive solution is trivial, could you do it iteratively?
 public class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> ret = new LinkedList<Integer>();
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Deque<TreeNode> stack = new LinkedList<TreeNode>();
         TreeNode node = root;
 
-        while (!stack.empty() || node != null) {
+        while (!stack.isEmpty() || node != null) {
             if (node != null) {
-                stack.push(node);
                 ret.add(0, node.val);
+                stack.push(node);
                 node = node.right;
             } else {
                 node = stack.pop().left;

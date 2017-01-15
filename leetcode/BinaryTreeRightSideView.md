@@ -45,12 +45,8 @@ public class Solution {
                 // only add the last element for every level
                 if (i == size - 1)  ret.add(node.val);
 
-                if (node.left != null) {
-                    queue.offer(node.left);
-                }
-                if (node.right != null) {
-                    queue.offer(node.right);
-                }
+                if (node.left != null) queue.offer(node.left);
+                if (node.right != null) queue.offer(node.right);
             }
         }
 

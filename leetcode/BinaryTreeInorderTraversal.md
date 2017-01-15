@@ -29,11 +29,11 @@ For example:
  */
 public class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> ret = new ArrayList<Integer>();
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        List<Integer> ret = new LinkedList<Integer>();
+        Deque<TreeNode> stack = new LinkedList<TreeNode>();
         TreeNode node = root;
 
-        while (!stack.empty() || node != null) {
+        while (!stack.isEmpty() || node != null) {
             if (node != null) {
                 stack.push(node);
                 node = node.left;
@@ -43,6 +43,7 @@ public class Solution {
                 node = node.right;
             }
         }
+
 
         return ret;
     }
