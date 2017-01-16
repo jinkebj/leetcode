@@ -35,5 +35,5 @@ ON TO_DAYS(t1.Date) = TO_DAYS(t2.Date) + 1
 WHERE t1.Temperature > t2.Temperature;
 
 SELECT a.Id FROM Weather AS a, Weather AS b
-WHERE DATEDIFF(a.Date, b.Date)=1 AND a.Temperature > b.Temperature;
+WHERE DATEDIFF(a.Date, b.Date) = 1 AND a.Temperature > b.Temperature;
 ```
