@@ -6,7 +6,7 @@ Return all possible palindrome partitioning of s.
 
     For example,
 
-    given s = =="aab"==,
+    given s = "aab",
 
     Return
 

@@ -11,9 +11,9 @@ Given an encoded message containing digits, determine the total number of ways t
 
 For example,
 
-    Given encoded message =="12"==, it could be decoded as =="AB"== (1 2) or =="L"== (12).
+    Given encoded message "12", it could be decoded as "AB" (1 2) or "L" (12).
 
-    The number of ways decoding =="12"== is 2.
+    The number of ways decoding "12" is 2.
 
 **Java:**
 ```java

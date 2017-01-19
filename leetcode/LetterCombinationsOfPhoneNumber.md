@@ -13,7 +13,7 @@ Note:
 
 Although the above answer is in lexicographical order, your answer could be in any order you want.
 
-**Java:**
+**Java: (iterative)**
 ```java
 public class Solution {
     public List<String> letterCombinations(String digits) {
@@ -40,7 +40,7 @@ public class Solution {
 }
 ```
 
-**Java:**
+**Java: (queue)**
 ```java
 public class Solution {
     public List<String> letterCombinations(String digits) {
@@ -67,7 +67,7 @@ public class Solution {
 }
 ```
 
-**Java:**
+**Java: (recursive)**
 ```java
 public class Solution {
 
