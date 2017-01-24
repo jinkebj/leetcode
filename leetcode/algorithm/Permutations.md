@@ -14,7 +14,7 @@ Given a collection of numbers, return all possible permutations.
 
 **C++:**
 
-**Analyze:**
+**Analysis:**
 典型的递归问题。
 
 生成[2, 3]的全排列[2, 3]和[3, 2]，然后把1加上去生成[1, 2, 3]和[1, 3, 2]。
