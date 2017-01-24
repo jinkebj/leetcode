@@ -14,11 +14,11 @@ Determine if you are able to reach the last index.
 **Java:**
 ```java
 public class Solution {
-    public boolean canJump(int[] A) {
+    public boolean canJump(int[] nums) {
         int reach = 1;
-        int l = A.length;
+        int l = nums.length;
         for (int i = 0; i < reach && reach < l; i++) {
-            if (i + A[i] + 1 > reach ) reach = i + A[i] + 1;
+            if (i + nums[i] + 1 > reach) reach = i + nums[i] + 1;
         }
         return (reach >= l);
     }

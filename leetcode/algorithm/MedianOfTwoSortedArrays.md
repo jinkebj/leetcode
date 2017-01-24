@@ -2,6 +2,20 @@
 
 There are two sorted arrays A and B of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
 
+Example 1:
+
+    nums1 = [1, 3]
+    nums2 = [2]
+
+    The median is 2.0
+
+Example 2:
+
+    nums1 = [1, 2]
+    nums2 = [3, 4]
+
+    The median is (2 + 3)/2 = 2.5
+
 **Analysis:**
 ```
 中位数(Median)是在一组数据中居于中间的数(特别注意的地方是：这组数据之前已经经过升序排列！！！)，即在这组数据中，有一半的数据比它大，有一半的数据比它小。如果这组数据包含偶数个数字，中位数是位于中间的两个数的平均值。
