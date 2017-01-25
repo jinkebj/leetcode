@@ -26,6 +26,11 @@ Example:
     2.  5 -> 2 -> 1
     3. -3 -> 11
 
+**Analysis:**
+- Each time find all the path start from current node
+- Then move start node to the child and repeat.
+- Time Complexity should be O(N^2) for the worst case and O(NlogN) for balanced binary Tree.
+
 **Java:**
 ```java
 /**

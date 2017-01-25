@@ -44,13 +44,13 @@ public class Solution {
 
         if (root.left == null && root.right == null && sum == root.val) {
             ret.add(new LinkedList(curRet));
-            curRet.remove(curRet.size() - 1); // remove the latst item for next iteration
+            curRet.remove(curRet.size() - 1); // remove the last item for next iteration
             return;
         } else {
             pathSumInner(root.left, sum - root.val, curRet, ret);
             pathSumInner(root.right, sum - root.val, curRet, ret);
         }
-        curRet.remove(curRet.size() - 1); // remove the latst item for next iteration
+        curRet.remove(curRet.size() - 1); // remove the last item for next iteration
     }
 }
 ```

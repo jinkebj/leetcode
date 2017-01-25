@@ -15,37 +15,32 @@ You should preserve the original relative order of the nodes in each of the two 
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
+ *     ListNode(int x) { val = x; }
  * }
  */
 public class Solution {
     public ListNode partition(ListNode head, int x) {
-        if (head == null) return null;
+        ListNode dummyLesser = new ListNode(-1);
+        ListNode dummyGreater = new ListNode(-1);
+        ListNode lesser = dummyLesser;
+        ListNode greater = dummyGreater;
+        ListNode cur = head;
 
-        ListNode lesserList = new ListNode(0);
-        ListNode greaterList = new ListNode(0);
-        ListNode firstLesserList = lesserList;
-        ListNode firstGreaterList = greaterList;
-
-        while (head != null) {
-            ListNode node = new ListNode(head.val);
-
-            if (head.val < x) {
-                lesserList.next = node;
-                lesserList = lesserList.next;
+        while (cur != null) {
+            if (cur.val < x) {
+                lesser.next = cur;
+                lesser = cur;
             } else {
-                greaterList.next = node;
-                greaterList = greaterList.next;
+                greater.next = cur;
+                greater = cur;
             }
-
-            head = head.next;
+            cur = cur.next;
         }
 
-        if (firstGreaterList.next != null) lesserList.next = firstGreaterList.next;
-        return firstLesserList.next;
+        lesser.next = dummyGreater.next;
+        greater.next = null;
+
+        return dummyLesser.next;
     }
 }
 ```
