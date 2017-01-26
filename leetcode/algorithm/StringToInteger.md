@@ -9,7 +9,7 @@ Notes: It is intended for this problem to be specified vaguely (ie, no given inp
 **Java:**
 ```java
 public class Solution {
-    public int atoi(String str) {
+    public int myAtoi(String str) {
         int sign = 1;
         int len = str.length();
         int num = 0;
@@ -39,7 +39,7 @@ public class Solution {
 ```c++
 class Solution {
 public:
-    int atoi(const char *str) {
+    int myAtoi(const char *str) {
         int sign = 1;
         int len = strlen(str);
         int num = 0;

@@ -11,7 +11,33 @@ Follow up:
 
 **Java:**
 ```java
+public class Solution {
+    public void setZeroes(int[][] matrix) {
+        Set<Integer> rows = new HashSet<Integer>();
+        Set<Integer> cols = new HashSet<Integer>();
 
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 0) {
+                    rows.add(i);
+                    cols.add(j);
+                }
+            }
+        }
+
+        for (Integer row : rows) {
+            for (int m = 0; m < matrix[0].length; m++) {
+                matrix[row][m] = 0;
+            }
+        }
+
+        for (Integer col: cols) {
+            for (int m = 0; m < matrix.length; m++) {
+                matrix[m][col] = 0;
+            }
+        }
+    }
+}
 ```
 
 **C++:**

@@ -42,7 +42,7 @@ public class Solution {
         int last = nums.length - 1;
 
         while (first <= last) {
-            int mid = (first + last) / 2;
+            int mid = first + (last - first) / 2;
             if (nums[mid] == target) return mid;
 
             if (nums[first] <= nums[mid]) {

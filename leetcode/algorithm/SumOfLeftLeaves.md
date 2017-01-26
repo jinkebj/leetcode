@@ -56,23 +56,18 @@ public class Solution {
         int ret = 0;
         if (root == null) return ret;
 
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Deque<TreeNode> stack = new LinkedList<TreeNode>();
         stack.push(root);
 
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             if (node.left != null) {
-                if (node.left.left == null && node.left.right == null) {
-                    ret += node.left.val;
-                } else {
-                    stack.push(node.left);
-                }
+                if (node.left.left == null && node.left.right == null) ret += node.left.val;
+                else stack.push(node.left);
             }
 
             if (node.right != null) {
-                if (node.right.left != null || node.right.right != null) {
-                    stack.push(node.right);
-                }
+                if (node.right.left != null || node.right.right != null) stack.push(node.right);
             }
         }
 
