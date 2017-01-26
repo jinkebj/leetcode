@@ -77,10 +77,7 @@ public class Solution {
                 pg.offer(num);
                 set.add(num);
             }
-
-            if (pg.size() > 3) {
-                set.remove(pg.poll());
-            }
+            if (pg.size() > 3) set.remove(pg.poll());
         }
 
         if (pg.size() < 3) {
