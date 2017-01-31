@@ -33,14 +33,15 @@ Example 2:
 ```
 It's Binary Search
 
-The problem is basically asking the maximum length of consecutive number that has the running sum lesser or equal to `n`. In other word, find `x` that satisfy the following condition:
-`1 + 2 + 3 + 4 + 5 + 6 + 7 + ... + x <= n`
-`sum_{i=1}^x i <= n`
+The problem is basically asking the maximum length of consecutive number that has the running sum lesser or equal to n. In other word, find x that satisfy the following condition:
+
+1 + 2 + 3 + 4 + 5 + 6 + 7 + ... + x <= n
+sum_{i=1}^x i <= n
 
 Running sum can be simplified,
-`(x * ( x + 1)) / 2 <= n`
+(x * ( x + 1)) / 2 <= n
 
-Binary search is used in this case to slowly narrow down the `x` that will satisfy the equation. Note that 0.5 * mid * mid + 0.5 * mid does not have overflow issue as the intermediate result is implicitly autoboxed to double data type.
+Binary search is used in this case to slowly narrow down the x that will satisfy the equation. Note that 0.5 * mid * mid + 0.5 * mid does not have overflow issue as the intermediate result is implicitly autoboxed to double data type.
 ```
 
 **Java:**
