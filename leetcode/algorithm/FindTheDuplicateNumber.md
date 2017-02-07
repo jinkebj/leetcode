@@ -34,7 +34,8 @@ public class Solution {
 
 **Java:**
 
-- The main idea is the same with problem Linked List Cycle II,https://leetcode.com/problems/linked-list-cycle-ii/. - Use two pointers the fast and the slow. The fast one goes forward two steps each time, while the slow one goes only step each time.
+- The main idea is the same with problem Linked List Cycle II, https://leetcode.com/problems/linked-list-cycle-ii/
+- Use two pointers the fast and the slow. The fast one goes forward two steps each time, while the slow one goes only step each time.
 - They must meet the same item when slow==fast.
 - In fact, they meet in a circle, the duplicate number must be the entry point of the circle when visiting the array from nums[0]
 ```java
