@@ -1,6 +1,8 @@
 # Target Sum
 
-You are given a list of non-negative integers, a1, a2, ..., an, and a target, S. Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
+You are given a list of non-negative integers, a1, a2, ..., an, and a target, S.
+Now you have 2 symbols + and -.
+For each integer, you should choose one from + and - as its new symbol.
 
 Find out how many ways to assign symbols to make sum of integers equal to target S.
 
@@ -79,7 +81,8 @@ The recursive solution is very slow, because its runtime is exponential
 The original problem statement is equivalent to:
 Find a subset of nums that need to be positive, and the rest of them negative, such that the sum is equal to target
 
-Let P be the positive subset and N be the negative subset
+Let P be the positive subset and N be the negative subset.
+
 For example:
 
     Given nums = [1, 2, 3, 4, 5] and target = 3 then one possible solution is +1-2+3-4+5 = 3
