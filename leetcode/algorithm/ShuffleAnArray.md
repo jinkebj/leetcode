@@ -23,7 +23,7 @@ public class Solution {
 
     public Solution(int[] nums) {
         this.nums = nums;
-        this.random = new Random(0);
+        this.random = new Random();
     }
 
     /** Resets the array to its original configuration and return it. */
@@ -33,11 +33,12 @@ public class Solution {
 
     /** Returns a random shuffling of the array. */
     public int[] shuffle() {
-        int[] rand = new int[nums.length];
+        int[] rand = nums.clone();
         for (int i = 0; i < nums.length; i++) {
-            int r = random.nextInt(i + 1);
-            rand[i] = rand[r];
-            rand[r] = nums[i];
+            int j = random.nextInt(i + 1);
+            int tmp = rand[i];
+            rand[i] = rand[j];
+            rand[j] = tmp;
         }
         return rand;
     }
