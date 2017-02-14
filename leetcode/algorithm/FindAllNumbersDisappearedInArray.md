@@ -25,7 +25,7 @@ In the second iteration, if a value is not marked as negative, it implies we hav
 ```java
 public class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
-        List<Integer> ret = new ArrayList();
+        List<Integer> ret = new ArrayList<>();
 
         for (int i = 0; i < nums.length; i++) {
             int val = Math.abs(nums[i]) - 1;
