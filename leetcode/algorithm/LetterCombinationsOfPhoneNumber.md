@@ -17,7 +17,7 @@ Although the above answer is in lexicographical order, your answer could be in a
 ```java
 public class Solution {
     public List<String> letterCombinations(String digits) {
-        List<String> ret = new ArrayList();
+        List<String> ret = new ArrayList<>();
         if (digits == null || digits.length() == 0) return ret;
 
         ret.add("");
@@ -44,7 +44,7 @@ public class Solution {
 ```java
 public class Solution {
     public List<String> letterCombinations(String digits) {
-        LinkedList<String> ret = new LinkedList();
+        LinkedList<String> ret = new LinkedList<>();
         if (digits == null || digits.length() == 0) return ret;
 
         ret.add("");
@@ -70,49 +70,25 @@ public class Solution {
 **Java: (recursive)**
 ```java
 public class Solution {
-
     public List<String> letterCombinations(String digits) {
-        result = new ArrayList<String>();
-        if (digits.isEmpty()) {
-            result.add("");
-            return result;
-        }
+        List<String> ret = new LinkedList<>();
+        if (digits == null || digits.length() == 0) return ret;
 
-        initMap();
-        array = digits.toCharArray();
-
-        cons = new char[digits.length()];
-        for (Character ch : map.get(array[0]))
-            letterCombinationsHelper(0, ch);
-        return result;
+        combination("", digits, 0, ret);
+        return ret;
     }
 
-    private void letterCombinationsHelper(int i, char c) {
-        cons[i++] = c;
-        if (i == array.length) {
-            result.add(new String(cons));
+    private void combination(String prefix, String digits, int offset, List<String> ret) {
+        if (offset >= digits.length()) {
+            ret.add(prefix);
             return;
         }
-        for (Character ch : map.get(array[i]))
-            letterCombinationsHelper(i, ch);
+        String letters = KEYS[(digits.charAt(offset) - '0')];
+        for (int i = 0; i < letters.length(); i++) {
+            combination(prefix + letters.charAt(i), digits, offset + 1, ret);
+        }
     }
 
-    private void initMap() {
-        map = new HashMap<Character, Character[]>();
-        map.put('2', new Character[]{'a', 'b', 'c'});
-        map.put('3', new Character[]{'d', 'e', 'f'});
-        map.put('4', new Character[]{'g', 'h', 'i'});
-        map.put('5', new Character[]{'j', 'k', 'l'});
-        map.put('6', new Character[]{'m', 'n', 'o'});
-        map.put('7', new Character[]{'p', 'q', 'r', 's'});
-        map.put('8', new Character[]{'t', 'u', 'v'});
-        map.put('9', new Character[]{'w', 'x', 'y', 'z'});
-    }
-
-    private Map<Character,Character[]> map;
-    private char[] array;
-    private char[] cons;
-    private List<String> result;
-
+    private static final String[] KEYS = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 }
 ```

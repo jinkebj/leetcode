@@ -9,7 +9,7 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 public class Solution {
     public boolean isValid(String s) {
         if (s == null) return false;
-        Deque<Character> stack = new ArrayDeque();
+        Deque<Character> stack = new ArrayDeque<>();
 
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{') stack.push(s.charAt(i));

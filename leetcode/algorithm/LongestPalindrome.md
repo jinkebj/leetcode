@@ -25,7 +25,7 @@ public class Solution {
         int ret = 0;
         if (s == null) return ret;
 
-        HashSet<Character> set = new HashSet<Character>();
+        Set<Character> set = new HashSet<>();
         for (int i = 0; i < s.length(); i++) {
             if (set.contains(s.charAt(i))) {
                 set.remove(s.charAt(i));

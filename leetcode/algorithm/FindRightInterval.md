@@ -47,23 +47,23 @@ Example 3:
  *     Interval(int s, int e) { start = s; end = e; }
  * }
  */
-public class Solution {
-    public int[] findRightInterval(Interval[] intervals) {
-        int[] ret = new int[intervals.length];
-        java.util.NavigableMap<Integer, Integer> intervalMap = new TreeMap<Integer, Integer>();
+ public class Solution {
+     public int[] findRightInterval(Interval[] intervals) {
+         int[] ret = new int[intervals.length];
+         java.util.NavigableMap<Integer, Integer> intervalMap = new TreeMap<>();
 
-        for (int i = 0; i < intervals.length; i++) {
-            intervalMap.put(intervals[i].start, i);    
-        }
+         for (int i = 0; i < intervals.length; i++) {
+             intervalMap.put(intervals[i].start, i);
+         }
 
-        for (int i = 0; i < intervals.length; i++) {
-            Map.Entry<Integer, Integer> entry = intervalMap.ceilingEntry(intervals[i].end);
-            ret[i] = (entry != null) ? entry.getValue() : -1;
-        }
+         for (int i = 0; i < intervals.length; i++) {
+             Map.Entry<Integer, Integer> entry = intervalMap.ceilingEntry(intervals[i].end);
+             ret[i] = (entry != null) ? entry.getValue() : -1;
+         }
 
-        return ret;
-    }
-}
+         return ret;
+     }
+ }
 ```
 
 **Java: (binary search)**
@@ -79,7 +79,7 @@ public class Solution {
  */
 public class Solution {
     public int[] findRightInterval(Interval[] intervals) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
         List<Integer> starts = new ArrayList<>();
         for (int i = 0; i < intervals.length; i++) {
             map.put(intervals[i].start, i);

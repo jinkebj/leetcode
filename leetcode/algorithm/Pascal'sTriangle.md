@@ -17,11 +17,11 @@ Return
 ```java
 public class Solution {
     public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> ret = new ArrayList();
+        List<List<Integer>> ret = new ArrayList<>();
         if (numRows <= 0) return ret;
 
         for (int i = 0; i < numRows; i++) {
-            List<Integer> row = new ArrayList();
+            List<Integer> row = new ArrayList<>();
             row.add(1);
 
             for (int j = 1; j < i + 1; j++) {
@@ -41,10 +41,10 @@ public class Solution {
 ```java
 public class Solution {
     public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> ret = new ArrayList();
+        List<List<Integer>> ret = new ArrayList<>();
         if (numRows <= 0) return ret;
 
-        List<Integer> row = new ArrayList();
+        List<Integer> row = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {
             row.add(0, 1);
 
@@ -52,7 +52,7 @@ public class Solution {
                 row.set(j, row.get(j) + row.get(j + 1));
             }
 
-            ret.add(new ArrayList(row));
+            ret.add(new ArrayList<>(row));
         }
 
         return ret;

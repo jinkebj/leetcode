@@ -31,7 +31,7 @@ Example:
 ```java
 public class Solution {
     public List<String> fizzBuzz(int n) {
-        List<String> ret = new ArrayList<String>();
+        List<String> ret = new ArrayList<>();
 
         for (int i = 1; i <= n; i++) {
             if (i % 15 == 0) ret.add("FizzBuzz");

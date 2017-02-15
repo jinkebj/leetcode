@@ -40,7 +40,7 @@ Example 3:
 public class Solution {
     public boolean repeatedSubstringPattern(String str) {
         int len = str.length();
-        List<Integer> subStrLenList = new ArrayList<Integer>();
+        List<Integer> subStrLenList = new ArrayList<>();
 
         // get all possible length of sub string
         for (int i = 1; i < len; i++) {

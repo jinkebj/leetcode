@@ -20,7 +20,7 @@ public class Solution {
         int ret = 0;
         if (root == null) return ret;
 
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {

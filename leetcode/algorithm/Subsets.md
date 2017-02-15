@@ -74,13 +74,13 @@ Use recursive function to add both cases.
 ```java
 public class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> ret = new ArrayList();
-        ret.add(new ArrayList());
+        List<List<Integer>> ret = new ArrayList<>();
+        ret.add(new ArrayList<>());
 
         for (int i = 0; i < nums.length; i++) {
             int size = ret.size();
             for (int j = 0; j < size; j++) {
-                List<Integer> subs = new ArrayList(ret.get(j));
+                List<Integer> subs = new ArrayList<>(ret.get(j));
                 subs.add(nums[i]);
                 ret.add(subs);
             }
@@ -96,8 +96,8 @@ public class Solution {
 public class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         int size = (int)Math.pow(2, nums.length);
-        List<List<Integer>> ret = new ArrayList();
-        for (int i = 0; i < size; i++) ret.add(new ArrayList());
+        List<List<Integer>> ret = new ArrayList<>();
+        for (int i = 0; i < size; i++) ret.add(new ArrayList<>());
 
         for (int i = 0; i < nums.length; i++) {
             for (int j = 0; j < size; j++) {
@@ -114,13 +114,13 @@ public class Solution {
 ```java
 public class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> list = new ArrayList();
-        backtrack(list, new ArrayList(), nums, 0);
+        List<List<Integer>> list = new ArrayList<>();
+        backtrack(list, new ArrayList<>(), nums, 0);
         return list;
     }
 
     private void backtrack(List<List<Integer>> list , List<Integer> tempList, int [] nums, int start) {
-        list.add(new ArrayList(tempList));
+        list.add(new ArrayList<>(tempList));
 
         for (int i = start; i < nums.length; i++) {
             tempList.add(nums[i]); // contain nums[i] in subset

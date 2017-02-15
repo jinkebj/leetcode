@@ -39,7 +39,7 @@ public class Solution {
         int ret = 0;
         if (root == null) return ret;
 
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {
@@ -73,8 +73,8 @@ public class Solution {
        int ret = 0;
        if (root == null) return ret;
 
-       Deque<TreeNode> nodeStack = new LinkedList<TreeNode>();
-       Deque<Integer> depthStack = new ArrayDeque<Integer>();
+       Deque<TreeNode> nodeStack = new LinkedList<>();
+       Deque<Integer> depthStack = new ArrayDeque<>();
        nodeStack.push(root);
        depthStack.push(1);
 

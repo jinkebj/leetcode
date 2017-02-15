@@ -58,7 +58,7 @@ public class Solution {
     public boolean isSymmetric(TreeNode root) {
         if (root == null) return true;
 
-        Deque<TreeNode> stack = new LinkedList<TreeNode>();
+        Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root.left);
         stack.push(root.right);
 

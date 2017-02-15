@@ -31,10 +31,10 @@ It's binary tree level order traverse, but only add the last element for every l
  */
 public class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> ret = new ArrayList<Integer>();
+        List<Integer> ret = new ArrayList<>();
         if (root == null) return ret;
 
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {

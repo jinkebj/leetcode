@@ -21,11 +21,11 @@ Assume a BST is defined as follows:
  */
 public class Solution {
     public boolean isValidBST(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode node = root;
         TreeNode preNode = null;
 
-        while (!stack.empty() || node != null) {
+        while (!stack.isEmpty() || node != null) {
             if (node != null) {
                 stack.push(node);
                 node = node.left;

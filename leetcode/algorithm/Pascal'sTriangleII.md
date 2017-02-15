@@ -23,7 +23,7 @@ We can do it iterativly:
 ```java
 public class Solution {
     public List<Integer> getRow(int rowIndex) {
-        List<Integer> ret = new ArrayList();
+        List<Integer> ret = new ArrayList<>();
         if (rowIndex < 0) return ret;
 
         for (int i = 0; i <= rowIndex; i++) {

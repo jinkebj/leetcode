@@ -23,7 +23,7 @@ public class Solution {
         if (points.length == 0 || points[0].length == 0) return 0;
         int ret = 0;
         for (int i = 0; i < points.length; i++) {
-            Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+            Map<Integer, Integer> map = new HashMap<>();
             int[] p = points[i];
             for (int j = 0; j < points.length; j++) {
                 if (j == i) continue;

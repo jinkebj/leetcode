@@ -33,14 +33,14 @@ Given binary tree {3,9,20,#,#,15,7},
  */
 public class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> ret = new ArrayList<List<Integer>>();
+        List<List<Integer>> ret = new ArrayList<>();
         levelOrderInner(root, ret, 0);
         return ret;
     }
 
     private void levelOrderInner(TreeNode root, List<List<Integer>> ret, int height) {
         if (root == null) return;
-        if (height >= ret.size()) ret.add(new ArrayList<Integer>());
+        if (height >= ret.size()) ret.add(new ArrayList<>());
         ret.get(height).add(root.val);
         levelOrderInner(root.left, ret, height + 1);
         levelOrderInner(root.right, ret, height + 1);
@@ -61,14 +61,14 @@ public class Solution {
  */
 public class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> ret = new ArrayList<List<Integer>>();
+        List<List<Integer>> ret = new ArrayList<>();
         if (root == null) return ret;
 
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            List<Integer> levelValues = new ArrayList<Integer>();
+            List<Integer> levelValues = new ArrayList<>();
             int size = queue.size();
             while (size-- > 0) {
                 TreeNode node = queue.poll();

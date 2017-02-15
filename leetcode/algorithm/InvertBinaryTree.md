@@ -58,7 +58,7 @@ public class Solution {
     public TreeNode invertTree(TreeNode root) {
         if (root == null) return null;
 
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {

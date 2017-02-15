@@ -24,19 +24,19 @@ Return all possible palindrome partitioning of s.
 public class Solution {
      public static List<List<String>> partition(String s) {
         int len = s.length();
-        List<List<String>>[] result = new List[len + 1];
-        result[0] = new ArrayList<List<String>>();
-        result[0].add(new ArrayList<String>());
+        List<List<String>>[] result = new ArrayList[len + 1];
+        result[0] = new ArrayList<>();
+        result[0].add(new ArrayList<>());
 
         boolean[][] pair = new boolean[len][len];
         for (int i = 0; i < s.length(); i++) {
-            result[i + 1] = new ArrayList<List<String>>();
+            result[i + 1] = new ArrayList<>();
             for (int left = 0; left <= i; left++) {
                 if (s.charAt(left) == s.charAt(i) && (i - left <= 1 || pair[left + 1][i - 1])) {
                     pair[left][i] = true;
                     String str = s.substring(left, i + 1);
                     for (List<String> r : result[left]) {
-                        List<String> ri = new ArrayList<String>(r);
+                        List<String> ri = new ArrayList<>(r);
                         ri.add(str);
                         result[i + 1].add(ri);
                     }
@@ -53,15 +53,15 @@ public class Solution {
 ```java
 public class Solution {
     public List<List<String>> partition(String s) {
-        List<List<String>> resultLst = new ArrayList<List<String>>();
-        List<String> currLst = new ArrayList<String>();
+        List<List<String>> resultLst = new ArrayList<>();
+        List<String> currLst = new ArrayList<>();
         backTrack(resultLst, currLst, s, 0);
         return resultLst;
     }
 
     private void backTrack(List<List<String>> resultLst, List<String> currLst, String s, int start) {
         if (currLst.size() > 0 && start >= s.length()) {
-            resultLst.add(new ArrayList<String>(currLst));
+            resultLst.add(new ArrayList<>(currLst));
         }
 
         for (int i = start; i < s.length(); i++) {

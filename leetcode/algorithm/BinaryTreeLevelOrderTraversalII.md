@@ -32,15 +32,15 @@ return its bottom-up level order traversal as:
  */
 public class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        List<List<Integer>> ret = new LinkedList<List<Integer>>();
+        List<List<Integer>> ret = new LinkedList<>();
         if  (root == null) return ret;
 
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {
             int size = queue.size();
-            List<Integer> levelValues = new ArrayList<Integer>();
+            List<Integer> levelValues = new ArrayList<>();
             while (size-- > 0) {
                 TreeNode node = queue.poll();
                 levelValues.add(node.val);

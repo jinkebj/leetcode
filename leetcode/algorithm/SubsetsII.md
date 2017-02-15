@@ -33,8 +33,8 @@ If nums = [1,2,2], a solution is:
 ```java
 public class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        List<List<Integer>> ret = new ArrayList();
-        ret.add(new ArrayList());
+        List<List<Integer>> ret = new ArrayList<>();
+        ret.add(new ArrayList<>());
         Arrays.sort(nums);
         int size = 0;
 
@@ -44,7 +44,7 @@ public class Solution {
 
             // for the duplicate num, only append it to last time newly added subset
             for (int j = start; j < size; j++) {
-                List<Integer> subs = new ArrayList(ret.get(j));
+                List<Integer> subs = new ArrayList<>(ret.get(j));
                 subs.add(nums[i]);
                 ret.add(subs);
             }

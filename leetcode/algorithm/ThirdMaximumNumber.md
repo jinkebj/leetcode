@@ -69,8 +69,8 @@ public class Solution {
 ```java
 public class Solution {
     public int thirdMax(int[] nums) {
-        PriorityQueue<Integer> pg = new PriorityQueue<Integer>();
-        Set<Integer> set = new HashSet<Integer>();
+        Queue<Integer> pg = new PriorityQueue<>();
+        Set<Integer> set = new HashSet<>();
 
         for (int num : nums) {
             if (!set.contains(num)) {

@@ -6,7 +6,7 @@ Given an array of integers and an integer k, find out whether there are two dist
 ```java
 public class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-        Set<Integer> numSet = new HashSet<Integer>();
+        Set<Integer> numSet = new HashSet<>();
 
         for (int i = 0; i < nums.length; i++) {
             if (i > k) numSet.remove(nums[i - k - 1]);

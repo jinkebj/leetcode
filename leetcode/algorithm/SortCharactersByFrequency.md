@@ -44,7 +44,7 @@ Example 3:
 public class Solution {
     public String frequencySort(String s) {
         StringBuilder ret = new StringBuilder();
-        Map<Character, Integer> charFreq = new HashMap<Character, Integer>();
+        Map<Character, Integer> charFreq = new HashMap<>();
         char[] sChars = s.toCharArray();
 
         // get frequency for every character
@@ -58,7 +58,7 @@ public class Solution {
         List<Character>[] freqCharArr = new List[sChars.length + 1];
         for (char key : charFreq.keySet()) {
             int freq = charFreq.get(key);
-            if (freqCharArr[freq] == null) freqCharArr[freq] = new ArrayList<Character>();
+            if (freqCharArr[freq] == null) freqCharArr[freq] = new ArrayList<>();
             freqCharArr[freq].add(key);
         }
 
@@ -80,7 +80,7 @@ public class Solution {
 public class Solution {
     public String frequencySort(String s) {
         StringBuilder ret = new StringBuilder();
-        Map<Character, Integer> charFreq = new HashMap<Character, Integer>();
+        Map<Character, Integer> charFreq = new HashMap<>();
         char[] sChars = s.toCharArray();
 
         // get frequency for every character
@@ -90,13 +90,13 @@ public class Solution {
         }
 
         // utilize priority queue for sort
-        PriorityQueue<Map.Entry<Character, Integer>> pq = new PriorityQueue<Map.Entry<Character, Integer>>(
+        Queue<Map.Entry<Character, Integer>> pq = new PriorityQueue<>(
             (a, b) -> b.getValue() - a.getValue());
         pq.addAll(charFreq.entrySet());
 
         // append char by frequency
         while (!pq.isEmpty()) {
-            Map.Entry e = pq.poll();
+            Map.Entry<Character, Integer> e = pq.poll();
             for (int i = 0; i < (int)e.getValue(); i++) {
                 ret.append(e.getKey());
             }

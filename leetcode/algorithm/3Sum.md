@@ -19,7 +19,7 @@ The solution set must not contain duplicate triplets.
 ```java
 public class Solution {
     public List<List<Integer>> threeSum(int[] num) {
-        List<List<Integer>> ret = new ArrayList();
+        List<List<Integer>> ret = new ArrayList<>();
         if (num == null || num.length < 3) return ret;
         Arrays.sort(num);
 
@@ -32,7 +32,7 @@ public class Solution {
                 } else if (num[a] + num[b] + num[c] > 0) {
                     c--;
                 } else {
-                    ArrayList<Integer> tmp = new ArrayList<Integer>(Arrays.asList(num[a], num[b], num[c]));
+                    ArrayList<Integer> tmp = new ArrayList<>(Arrays.asList(num[a], num[b], num[c]));
                     if (ret.indexOf(tmp) < 0) ret.add(tmp);
                     b++;
                     c--;
@@ -49,7 +49,7 @@ public class Solution {
 ```java
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> ret = new ArrayList();
+        List<List<Integer>> ret = new ArrayList<>();
         if (nums == null || nums.length < 3) return ret;
         Arrays.sort(nums);
 

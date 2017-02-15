@@ -24,8 +24,8 @@ Example:
  */
 public class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        Deque<Integer> stack1 = new ArrayDeque<Integer>();
-        Deque<Integer> stack2 = new ArrayDeque<Integer>();
+        Deque<Integer> stack1 = new ArrayDeque<>();
+        Deque<Integer> stack2 = new ArrayDeque<>();
 
         while (l1 != null) {
             stack1.push(l1.val);

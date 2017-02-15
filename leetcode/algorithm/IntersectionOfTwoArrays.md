@@ -15,8 +15,8 @@ Note:
 ```java
 public class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
-        Set<Integer> numSet = new HashSet<Integer>();
-        Set<Integer> interset = new HashSet<Integer>();
+        Set<Integer> numSet = new HashSet<>();
+        Set<Integer> interset = new HashSet<>();
 
         for (int i = 0; i < nums1.length; i++) {
             numSet.add(nums1[i]);

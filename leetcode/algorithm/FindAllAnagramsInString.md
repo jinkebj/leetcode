@@ -36,7 +36,7 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 public class Solution {
   public class Solution {
       public List<Integer> findAnagrams(String s, String p) {
-          List<Integer> ret = new ArrayList<Integer>();
+          List<Integer> ret = new ArrayList<>();
           int size = p.length();
 
           for (int i = 0; i < s.length(); i++) {

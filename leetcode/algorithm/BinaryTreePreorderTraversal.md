@@ -29,8 +29,8 @@ Note: Recursive solution is trivial, could you do it iteratively?
  */
 public class Solution {
    public List<Integer> preorderTraversal(TreeNode root) {
-       List<Integer> ret = new LinkedList<Integer>();
-       Deque<TreeNode> stack = new LinkedList<TreeNode>();
+       List<Integer> ret = new LinkedList<>();
+       Deque<TreeNode> stack = new LinkedList<>();
        TreeNode node = root;
 
        while (!stack.isEmpty() || node != null) {

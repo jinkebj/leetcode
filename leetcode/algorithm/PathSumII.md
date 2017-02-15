@@ -32,8 +32,8 @@ return
  */
 public class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        List<List<Integer>> ret = new LinkedList<List<Integer>>();
-        List<Integer> curRet = new LinkedList<Integer>();
+        List<List<Integer>> ret = new LinkedList<>();
+        List<Integer> curRet = new LinkedList<>();
         pathSumInner(root, sum, curRet, ret);
         return ret;
     }
@@ -43,7 +43,7 @@ public class Solution {
         curRet.add(root.val);
 
         if (root.left == null && root.right == null && sum == root.val) {
-            ret.add(new LinkedList(curRet));
+            ret.add(new LinkedList<>(curRet));
             curRet.remove(curRet.size() - 1); // remove the last item for next iteration
             return;
         } else {

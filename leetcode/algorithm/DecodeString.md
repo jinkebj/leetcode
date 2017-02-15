@@ -14,6 +14,9 @@ Examples:
     s = "3[a2[c]]", return "accaccacc".
     s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
 
+**Analysis:**
+use 2 stack to store partial result and count
+
 **Java:**
 ```java
 public class Solution {

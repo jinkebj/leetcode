@@ -40,7 +40,7 @@ Situation two, number n is not selected, and the rest job is selecting k from n 
 public class Solution {
     public List<List<Integer>> combine(int n, int k) {
         if (k == n || k == 0) {
-            List<Integer> row = new LinkedList<Integer>();
+            List<Integer> row = new LinkedList<>();
             for (int i = 1; i <= k; i++) row.add(i);
             return new LinkedList(Arrays.asList(row));
         }
@@ -58,21 +58,20 @@ public class Solution {
 ```java
 public class Solution {
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> ret = new ArrayList<List<Integer>>();
-        doCombine(ret, new ArrayList<Integer>(), 1, n, k);
+        List<List<Integer>> ret = new ArrayList<>();
+        doCombine(ret, new ArrayList<>(), 1, n, k);
         return ret;
     }
 
     private void doCombine(List<List<Integer>> combs, List<Integer> comb, int start, int n, int k) {
         if (k == 0) {
-            combs.add(new ArrayList<Integer>(comb));
+            combs.add(new ArrayList<>(comb));
             return;
         }
         for (int i = start; i <= n; i++) {
             comb.add(i);
             doCombine(combs, comb, i + 1, n, k - 1); // select current position, process next position
             comb.remove(comb.size() - 1); // clear the current position to try next possible number
-            }
         }
     }
 }

@@ -39,8 +39,8 @@ Then the content in list became:
  */
 public class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
-        List<Integer> ret = new LinkedList<Integer>();
-        Deque<TreeNode> stack = new LinkedList<TreeNode>();
+        List<Integer> ret = new LinkedList<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         TreeNode node = root;
 
         while (!stack.isEmpty() || node != null) {

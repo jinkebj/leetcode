@@ -19,28 +19,28 @@ What if the BST is modified (insert/delete operations) often and you need to fin
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
-    public int kthSmallest(TreeNode root, int k) {
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode node = root;
-        int i = 1;
+ public class Solution {
+     public int kthSmallest(TreeNode root, int k) {
+         Deque<TreeNode> stack = new ArrayDeque<>();
+         TreeNode node = root;
+         int i = 1;
 
-        while (!stack.empty() || node != null) {
-            if (node != null) {
-                stack.push(node);
-                node = node.left;
-            } else {
-                node = stack.pop();
-                if (i == k) {
-                    return node.val;
-                } else {
-                    i++;
-                }
-                node = node.right;
-            }
-        }
+         while (!stack.isEmpty() || node != null) {
+             if (node != null) {
+                 stack.push(node);
+                 node = node.left;
+             } else {
+                 node = stack.pop();
+                 if (i == k) {
+                     return node.val;
+                 } else {
+                     i++;
+                 }
+                 node = node.right;
+             }
+         }
 
-        return Integer.MIN_VALUE;
-    }
-}
+         return Integer.MIN_VALUE;
+     }
+ }
 ```

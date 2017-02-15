@@ -12,7 +12,7 @@ public class Solution {
     public String simplifyPath(String path) {
         if (path == null) return null;
 
-        LinkedList<String> finalPath = new LinkedList<String>();
+        LinkedList<String> finalPath = new LinkedList<>();
         String[] pathArray = path.split("/");
 
         for (int i = 0; i < pathArray.length; i++) {

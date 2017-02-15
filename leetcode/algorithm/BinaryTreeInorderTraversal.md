@@ -29,8 +29,8 @@ For example:
  */
 public class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> ret = new LinkedList<Integer>();
-        Deque<TreeNode> stack = new LinkedList<TreeNode>();
+        List<Integer> ret = new LinkedList<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         TreeNode node = root;
 
         while (!stack.isEmpty() || node != null) {
@@ -63,7 +63,7 @@ public class Solution {
  */
 public class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<>();
         TreeNode cur = root;
 
         while (cur != null) {

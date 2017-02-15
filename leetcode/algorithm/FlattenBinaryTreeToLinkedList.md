@@ -42,7 +42,7 @@ public class Solution {
     public void flatten(TreeNode root) {
         if (root == null) return;
 
-        Deque<TreeNode> stack = new LinkedList<TreeNode>();
+        Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root);
 
         while (!stack.isEmpty()) {

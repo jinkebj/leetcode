@@ -17,7 +17,7 @@ Note: The solution set must not contain duplicate quadruplets.
 ```java
 public class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
-        List<List<Integer>> ret = new ArrayList<List<Integer>>();
+        List<List<Integer>> ret = new ArrayList<>();
         if (nums.length < 4) return ret;
 
         Arrays.sort(nums);

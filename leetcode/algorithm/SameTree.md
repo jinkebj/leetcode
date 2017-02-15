@@ -35,28 +35,28 @@ public class Solution {
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
-    public boolean isSameTree(TreeNode p, TreeNode q) {
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        stack.push(p);
-        stack.push(q);
+ public class Solution {
+     public boolean isSameTree(TreeNode p, TreeNode q) {
+         Deque<TreeNode> stack = new LinkedList<TreeNode>();
+         stack.push(p);
+         stack.push(q);
 
-        while (!stack.empty()) {
-            q = stack.pop();
-            p = stack.pop();
-            if (p == null && q == null) continue;
-            if (p == null || q == null || p.val != q.val) return false;
+         while (!stack.isEmpty()) {
+             q = stack.pop();
+             p = stack.pop();
+             if (p == null && q == null) continue;
+             if (p == null || q == null || p.val != q.val) return false;
 
-            stack.push(p.left);
-            stack.push(q.left);
+             stack.push(p.left);
+             stack.push(q.left);
 
-            stack.push(p.right);
-            stack.push(q.right);
-        }
+             stack.push(p.right);
+             stack.push(q.right);
+         }
 
-        return true;
-    }
-}
+         return true;
+     }
+ }
 ```
 
 **C++: (recursive)**

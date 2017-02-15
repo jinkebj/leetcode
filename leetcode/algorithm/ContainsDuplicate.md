@@ -6,7 +6,7 @@ Given an array of integers, find if the array contains any duplicates. Your func
 ```java
 public class Solution {
     public boolean containsDuplicate(int[] nums) {
-        Set<Integer> numSet = new HashSet<Integer>();
+        Set<Integer> numSet = new HashSet<>();
 
         for (int num : nums) {
             if (!numSet.add(num)) return true;

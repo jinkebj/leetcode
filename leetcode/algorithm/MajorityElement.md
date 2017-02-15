@@ -18,7 +18,7 @@ public class Solution {
 ```java
 public class Solution {
     public int majorityElement(int[] nums) {
-        Map<Integer, Integer> myMap = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> myMap = new HashMap<>();
         int ret = 0;
 
         for (int num: nums) {

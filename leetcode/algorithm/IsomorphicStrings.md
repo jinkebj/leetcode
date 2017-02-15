@@ -19,7 +19,7 @@ You may assume both s and t have the same length.
 ```java
 public class Solution {
     public boolean isIsomorphic(String s, String t) {
-        HashMap<Character, Character> map = new HashMap<Character, Character>();
+        Map<Character, Character> map = new HashMap<>();
         char[] sChars = s.toCharArray();
         char[] tChars = t.toCharArray();
 

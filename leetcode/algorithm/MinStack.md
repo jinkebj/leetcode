@@ -49,7 +49,7 @@ public class MinStack {
         return min;
     }
 
-    private Stack<Integer> stack = new Stack<Integer>();
+    private Deque<Integer> stack = new ArrayDeque<>();
     private int min = Integer.MAX_VALUE;
 }
 

@@ -16,7 +16,7 @@ public class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null  ||lists.length == 0) return null;
 
-        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.length,
+        Queue<ListNode> queue = new PriorityQueue<>(lists.length,
             (o1, o2) -> {
                 if (o1.val < o2.val) return -1;
                 else if (o1.val == o2.val) return 0;
@@ -28,7 +28,7 @@ public class Solution {
         ListNode tail = dummy;
 
         for (ListNode node : lists) {
-            if (node != null) queue.add(node);
+           if (node != null) queue.add(node);
         }
 
         while (!queue.isEmpty()) {
@@ -38,7 +38,7 @@ public class Solution {
         }
 
         return dummy.next;
-    }
+     }
 }
 ```
 

@@ -17,7 +17,7 @@ A happy number is a number defined by the following process: Starting with any p
 ```java
 public class Solution {
     public boolean isHappy(int n) {
-        Set<Integer> s = new HashSet<Integer>();
+        Set<Integer> s = new HashSet<>();
 
         while(true) {
             n = trans(n);

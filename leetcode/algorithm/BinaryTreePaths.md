@@ -27,7 +27,7 @@ All root-to-leaf paths are:
  */
 public class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> ret = new ArrayList<String>();
+        List<String> ret = new ArrayList<>();
         if (root != null) searchBT(root, "", ret);
         return ret;
     }

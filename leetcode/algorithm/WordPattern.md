@@ -22,7 +22,7 @@ public class Solution {
         String[] strArray = str.split(" ");
         if (pattern.length() != strArray.length) return false;
 
-        HashMap<Character, String> map = new HashMap();
+        Map<Character, String> map = new HashMap<>();
         for (int i = 0; i < pattern.length(); i++) {
             if (map.containsKey(pattern.charAt(i))) {
                 if (!map.get(pattern.charAt(i)).equals(strArray[i])) return false;

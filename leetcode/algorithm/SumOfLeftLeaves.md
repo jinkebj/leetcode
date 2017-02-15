@@ -56,7 +56,7 @@ public class Solution {
         int ret = 0;
         if (root == null) return ret;
 
-        Deque<TreeNode> stack = new LinkedList<TreeNode>();
+        Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root);
 
         while (!stack.isEmpty()) {

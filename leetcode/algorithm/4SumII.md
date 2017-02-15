@@ -31,7 +31,7 @@ Example:
 public class Solution {
     public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
         int ret = 0;
-        Map<Integer, Integer> sums = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> sums = new HashMap<>();
 
         for (int i = 0; i < A.length; i++) {
             for (int j = 0; j < B.length; j++) {

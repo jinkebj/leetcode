@@ -31,8 +31,8 @@ public class Solution {
         if (!wordList.contains(endWord)) return 0;
         if (beginWord.equals(endWord)) return 1;
 
-        LinkedList<String> queue = new LinkedList<String>();
-        HashMap<String, Integer> vis = new HashMap<String, Integer>();
+        List<String> queue = new LinkedList<>();
+        Map<String, Integer> vis = new HashMap<>();
         queue.add(beginWord);
         vis.put(beginWord, 1);
 
