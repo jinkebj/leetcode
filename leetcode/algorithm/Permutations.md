@@ -1,6 +1,6 @@
 # Permutations
 
-Given a collection of numbers, return all possible permutations.
+Given a collection of distinct numbers, return all possible permutations.
 
     For example,
 
