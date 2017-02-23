@@ -17,7 +17,7 @@ The word can be constructed from letters of sequentially adjacent cell, where "a
     word = "SEE", -> returns true,
     word = "ABCB", -> returns false.
 
-**Java:**
+**Java: (backtracking)**
 ```java
 public class Solution {
     public boolean exist(char[][] board, String word) {
