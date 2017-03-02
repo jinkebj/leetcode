@@ -10,30 +10,26 @@ Given an absolute path for a file (Unix-style), simplify it.
 ```java
 public class Solution {
     public String simplifyPath(String path) {
-        if (path == null) return null;
+        String ret = "";
+        Deque<String> stack = new LinkedList<>();
+        Set<String> skip = new HashSet<>(Arrays.asList("..", ".", ""));
 
-        LinkedList<String> finalPath = new LinkedList<>();
-        String[] pathArray = path.split("/");
-
-        for (int i = 0; i < pathArray.length; i++) {
-            if (pathArray[i].isEmpty() || pathArray[i].equals(".")) {
-                continue;
-            } else if (pathArray[i].equals("..")) {
-                if (!finalPath.isEmpty()) finalPath.removeLast();
-            } else {
-                finalPath.addLast(pathArray[i]);
-            }
+        for (String dir : path.split("/")) {
+            if (dir.equals("..") && !stack.isEmpty()) stack.pop();
+            else if (!skip.contains(dir)) stack.push(dir);
         }
+        for (String dir : stack) ret = "/" + dir + ret;
 
-        if (finalPath.isEmpty()) return "/";
+        return ret.isEmpty() ? "/" : ret;
+    }
+}
+```
 
-        StringBuilder ret = new StringBuilder();
-        for (String str : finalPath) {
-            ret.append("/");
-            ret.append(str);
-        }
-
-        return ret.toString();
+**Java: (use java.nio.file.Paths)**
+```java
+public class Solution {
+    public String simplifyPath(String path) {
+        return java.nio.file.Paths.get(path).normalize().toString();
     }
 }
 ```
