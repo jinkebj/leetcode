@@ -1,7 +1,7 @@
-# Tech Notes for JK
+# My LeetCode solutions
 
-### 1. Data Structure
-### 2. Algorithm Strategy
-### 3. Sorting Algorithm
-### 4. Design Pattern
-### 5. Leetcode Solution
+This repo contains my solutions to the problems of [LeetCode](http://oj.leetcode.com/), an online judge platform for preparing technical coding interviews.
+
+The problem statements can be found [here](http://oj.leetcode.com/problems/).
+
+All the solutions are written in Java.
