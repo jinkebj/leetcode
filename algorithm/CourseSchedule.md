@@ -38,19 +38,19 @@ class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         if (numCourses == 0 || prerequisites.length == 0) return true;
 
-        // convert graph presentation from edges to indegree of adjacent list
+        // construct indegree for each course
         int indegree[] = new int[numCourses];
-        for (int i = 0; i < prerequisites.length; i++) // Indegree - how many prerequisites are needed
-            indegree[prerequisites[i][0]]++;    
+        for (int i = 0; i < prerequisites.length; i++) indegree[prerequisites[i][0]]++;
 
+        // add course needn't prerequisite to queue
         Queue<Integer> queue = new LinkedList<Integer>();
-        for (int i = 0; i < numCourses; i++)
+        for (int i = 0; i < numCourses; i++) {
             if (indegree[i] == 0) queue.add(i);
+        }
 
-        // how many courses don't need prerequisites
         int canFinishCount = queue.size();  
         while (!queue.isEmpty()) {
-            int prerequisite = queue.remove(); // already finished this prerequisite course
+            int prerequisite = queue.remove(); // finish course with all prerequisite resolved
             for (int i = 0; i < prerequisites.length; i++)  {
                 if (prerequisites[i][1] == prerequisite) {
                     indegree[prerequisites[i][0]]--;
