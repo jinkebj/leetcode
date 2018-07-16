@@ -26,7 +26,7 @@ Then the content in list became:
     left -> right -> root
 ```
 
-**Java:**
+**Java:(recursive solution)**
 ```java
 /**
  * Definition for a binary tree node.
@@ -37,7 +37,35 @@ Then the content in list became:
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> ret = new LinkedList<>();
+        helper(ret, root);
+        return ret;
+    }
+
+    private void helper(List<Integer> ret, TreeNode root) {
+        if (root == null) return;
+
+        helper(ret, root.left);
+        helper(ret, root.right);
+        ret.add(root.val);
+    }
+}
+```
+
+**Java:(stack solution)**
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> ret = new LinkedList<>();
         Deque<TreeNode> stack = new LinkedList<>();
@@ -56,51 +84,4 @@ public class Solution {
         return ret;
     }
 }
-```
-
-**C++:**
-```c++
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    vector<int> postorderTraversal(TreeNode *root) {
-        vector<int> result;
-        const TreeNode* p = root;
-        const TreeNode* q;
-        stack<const TreeNode*> s;
-
-        do {
-            while (p != nullptr) {
-                s.push(p);
-                p = p->left;
-            }
-
-            q = nullptr;
-
-            while (!s.empty()) {
-                p = s.top();
-                s.pop();
-                if (p->right == q) {
-                    result.push_back(p->val);
-                    q = p;
-                } else {
-                    s.push(p);
-                    p = p->right;
-                    break;
-                }
-            }
-        } while (!s.empty());
-
-        return result;
-
-    }
-};
 ```

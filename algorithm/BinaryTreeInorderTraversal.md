@@ -16,7 +16,7 @@ For example:
 
     Note: Recursive solution is trivial, could you do it iteratively?
 
-**Java:(use stack)**
+**Java:(recursive solution)**
 ```java
 /**
  * Definition for a binary tree node.
@@ -27,7 +27,35 @@ For example:
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> ret = new LinkedList<>();
+        helper(ret, root);
+        return ret;
+    }
+
+    private void helper(List<Integer> ret, TreeNode root) {
+        if (root == null) return;
+
+        helper(ret, root.left);
+        ret.add(root.val);
+        helper(ret, root.right);
+    }
+}
+```
+
+**Java:(stack solution)**
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> ret = new LinkedList<>();
         Deque<TreeNode> stack = new LinkedList<>();
@@ -61,14 +89,14 @@ public class Solution {
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        ArrayList<Integer> result = new ArrayList<>();
+        List<Integer> ret = new LinkedList<>();
         TreeNode cur = root;
 
         while (cur != null) {
             if (cur.left == null) {
-                result.add(cur.val);
+                ret.add(cur.val);
                 cur = cur.right;
             } else {
                 TreeNode p = cur.left;
@@ -80,90 +108,14 @@ public class Solution {
                     p.right = cur;
                     cur = cur.left;
                 } else {
-                    result.add(cur.val);
+                    ret.add(cur.val);
                     p.right = null;
                     cur = cur.right;
                 }
             }
         }
 
-        return result;
+        return ret;
     }
 }
-```
-
-**C++:(use stack)**
-```c++
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    vector<int> inorderTraversal(TreeNode *root) {
-        vector<int> result;
-        const TreeNode* p = root;
-        stack<const TreeNode*> s;
-
-        while (!s.empty() || p!= nullptr) {
-            if (p != nullptr) {
-                s.push(p);
-                p = p->left;
-            } else {
-                p = s.top();
-                s.pop();
-                result.push_back(p->val);
-                p = p->right;
-            }
-        }
-        return result;
-    }
-};
-```
-
-**C++:(Morris traverse)**
-```c++
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    vector<int> inorderTraversal(TreeNode *root) {
-        vector<int> result;
-        TreeNode* cur = root;
-
-        while (cur != nullptr) {
-            if (cur->left == nullptr) {
-                result.push_back(cur->val);
-                cur = cur->right;
-            } else {
-                TreeNode* p = cur->left;
-                while (p->right != nullptr && p->right != cur) {
-                    p = p->right;
-                }
-                if (p->right == nullptr) {
-                    p->right = cur;
-                    cur = cur->left;
-                } else {
-                    result.push_back(cur->val);
-                    p->right = nullptr;
-                    cur = cur->right;
-                }
-            }
-        }
-
-        return result;
-    }
-};
 ```

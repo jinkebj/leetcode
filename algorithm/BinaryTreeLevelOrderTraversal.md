@@ -31,19 +31,20 @@ Given binary tree {3,9,20,#,#,15,7},
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<>();
-        levelOrderInner(root, ret, 0);
+        helper(ret, 0, root);
         return ret;
     }
 
-    private void levelOrderInner(TreeNode root, List<List<Integer>> ret, int height) {
+    private void helper(List<List<Integer>> ret, int height, TreeNode root) {
         if (root == null) return;
+
         if (height >= ret.size()) ret.add(new ArrayList<>());
         ret.get(height).add(root.val);
-        levelOrderInner(root.left, ret, height + 1);
-        levelOrderInner(root.right, ret, height + 1);
+        helper(ret, height + 1, root.left);
+        helper(ret, height + 1, root.right);
     }
 }
 ```
@@ -59,7 +60,7 @@ public class Solution {
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<>();
         if (root == null) return ret;
@@ -82,77 +83,4 @@ public class Solution {
         return ret;
     }
 }
-```
-
-**C++: (recursive)**
-```c++
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    vector<vector<int> > levelOrder(TreeNode *root) {
-        vector<vector<int>> result;
-        traverse(root, 1, result);
-        return result;
-    }
-
-    void traverse(TreeNode * node, size_t level, vector<vector<int>> &result) {
-        if (!node) return;
-
-        if (level > result.size()) {
-            result.push_back(vector<int>());
-        }
-
-        result[level -1].push_back(node->val);
-        traverse(node->left, level + 1, result);
-        traverse(node->right, level + 1, result);
-    }
-};
-```
-
-**C++: (iterative)**
-```c++
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    vector<vector<int> > levelOrder(TreeNode *root) {
-        vector<vector<int>> result;
-        if (root == nullptr) return result;
-
-        queue<TreeNode*> current, next;
-        vector<int> item;
-
-        current.push(root);
-        while (!current.empty()) {
-            while (!current.empty()) {
-               TreeNode* node = current.front();
-               current.pop();
-               item.push_back(node->val);
-               if (node->left != nullptr) next.push(node->left);
-               if (node->right != nullptr) next.push(node->right);
-            }
-
-            result.push_back(item);
-            item.clear();
-            swap(next, current);
-        }
-
-        return result;
-    }
-};
 ```

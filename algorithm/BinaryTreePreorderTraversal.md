@@ -16,7 +16,7 @@ For example:
 
 Note: Recursive solution is trivial, could you do it iteratively?
 
-**Java:(use stack)**
+**Java:(recursive solution)**
 ```java
 /**
  * Definition for a binary tree node.
@@ -27,28 +27,24 @@ Note: Recursive solution is trivial, could you do it iteratively?
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
-   public List<Integer> preorderTraversal(TreeNode root) {
-       List<Integer> ret = new LinkedList<>();
-       Deque<TreeNode> stack = new LinkedList<>();
-       TreeNode node = root;
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> ret = new LinkedList<>();
+        helper(ret, root);
+        return ret;
+    }
 
-       while (!stack.isEmpty() || node != null) {
-           if (node != null) {
-               stack.push(node);
-               ret.add(node.val);
-               node = node.left;
-           } else {
-               node = stack.pop().right;
-           }
-       }
+    private void helper(List<Integer> ret, TreeNode root) {
+        if (root == null) return;
 
-       return ret;
-   }
+        ret.add(root.val);
+        helper(ret, root.left);
+        helper(ret, root.right);
+    }
 }
 ```
 
-**Java:(use stack 2)**
+**Java:(stack solution)**
 ```java
 /**
  * Definition for a binary tree node.
@@ -59,12 +55,44 @@ public class Solution {
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> ret = new LinkedList<>();
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode node = root;
+
+        while (!stack.isEmpty() || node != null) {
+            if (node != null) {
+                ret.add(node.val);
+                stack.push(node);
+                node = node.left;
+            } else {
+                node = stack.pop().right;
+            }
+        }
+
+        return ret;
+    }
+}
+```
+
+**Java:(stack solution 2)**
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
    public List<Integer> preorderTraversal(TreeNode root) {
-       List<Integer> ret = new LinkedList<Integer>();
+       List<Integer> ret = new LinkedList<>();
        if (root == null) return ret;
 
-       Deque<TreeNode> stack = new LinkedList<TreeNode>();
+       Deque<TreeNode> stack = new LinkedList<>();
        stack.push(root);
 
        while (!stack.isEmpty()) {
@@ -90,14 +118,14 @@ public class Solution {
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        List<Integer> ret = new ArrayList<>();
         TreeNode cur = root;
 
         while (cur != null) {
             if (cur.left == null) {
-                result.add(cur.val);
+                ret.add(cur.val);
                 cur = cur.right;
             } else {
                 TreeNode p = cur.left;
@@ -105,7 +133,7 @@ public class Solution {
                     p = p.right;
                 }
                 if (p.right == null) {
-                    result.add(cur.val);
+                    ret.add(cur.val);
                     p.right = cur;
                     cur = cur.left;
                 } else {
@@ -115,84 +143,7 @@ public class Solution {
             }
         }
 
-        return result;
+        return ret;
     }
 }
-```
-
-**C++:(use stack)**
-```c++
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    vector<int> preorderTraversal(TreeNode *root) {
-        vector<int> result;
-        const TreeNode *p;
-        stack<const TreeNode*> s;
-
-        p = root;
-        if (p != nullptr) s.push(p);
-
-        while (!s.empty()) {
-            p = s.top();
-            s.pop();
-            result.push_back(p->val);
-
-            if (p->right != nullptr) s.push(p->right);
-            if (p->left != nullptr) s.push(p->left);
-        }
-
-        return result;
-    }
-};
-```
-
-**C++:(Morris traverse)**
-```c++
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    vector<int> preorderTraversal(TreeNode *root) {
-        vector<int> result;
-        TreeNode* cur = root;
-
-        while (cur != nullptr) {
-            if (cur->left == nullptr) {
-                result.push_back(cur->val);
-                cur = cur->right;
-            } else {
-                TreeNode* p = cur->left;
-                while (p->right != nullptr && p->right != cur) {
-                    p = p->right;
-                }
-                if (p->right == nullptr) {
-                    result.push_back(cur->val);
-                    p->right = cur;
-                    cur = cur->left;
-                } else {
-                    p->right = nullptr;
-                    cur = cur->right;
-                }
-            }
-        }
-
-        return result;
-    }
-};
 ```
