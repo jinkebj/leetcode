@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class PrimSolution {
     public static void main (String[] args) {
         // adjacency matrix representation of the graph
