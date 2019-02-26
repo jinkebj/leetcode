@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class KruskalSolution {
-        public static void main (String[] args) {
+    public static void main (String[] args) {
         /* Let us create following weighted graph
                  10
             0--------1
@@ -67,7 +67,7 @@ class Graph {
         V = v;
         E = e;
         edge = new Edge[E];
-        for (int i=0; i<e; ++i) edge[i] = new Edge();
+        for (int i = 0; i < e; ++i) edge[i] = new Edge();
     }
 
     // A utility function to find set of an element i (uses path compression technique)
@@ -104,7 +104,7 @@ class Graph {
         Edge result[] = new Edge[V];  // Tnis will store the resultant MST
         int e = 0;  // An index variable, used for result[]
         int i = 0;  // An index variable, used for sorted edges
-        for (i=0; i<V; ++i)
+        for (i = 0; i < V; ++i)
             result[i] = new Edge();
 
         // Step 1:  Sort all the edges in non-decreasing order of their
@@ -114,7 +114,7 @@ class Graph {
 
         // Allocate memory for creating V ssubsets
         subset subsets[] = new subset[V];
-        for(i=0; i<V; ++i)
+        for (i = 0; i < V; ++i)
             subsets[i]=new subset();
 
         // Create V subsets with single elements
@@ -138,8 +138,7 @@ class Graph {
             // If including this edge does't cause cycle,
             // include it in result and increment the index
             // of result for next edge
-            if (x != y)
-            {
+            if (x != y) {
                 result[e++] = next_edge;
                 Union(subsets, x, y);
             }
@@ -148,10 +147,8 @@ class Graph {
 
         // print the contents of result[] to display
         // the built MST
-        System.out.println("Following are the edges in " +
-                                     "the constructed MST");
+        System.out.println("Following are the edges in the constructed MST");
         for (i = 0; i < e; ++i)
-            System.out.println(result[i].src+" -- " +
-                   result[i].dest+" == " + result[i].weight);
+            System.out.println(result[i].src+" -- " + result[i].dest+" == " + result[i].weight);
     }
 }
