@@ -21,7 +21,7 @@ class QuickSort {
             while (i < j && a[j] >= pivot) j--;
             a[i] = a[j]; // 填A[i]这个坑, 填完后A[j]是个坑
             while (i < j && a[i] <= pivot) i++;
-            a[j] = a[i]; //填A[j]这个坑, 填完后A[i]是个坑
+            a[j] = a[i]; // 填A[j]这个坑, 填完后A[i]是个坑
         }
         a[i] = pivot; // 循环结束后i和j相等, 都指向坑的位置, 将中轴填入到这个位置
 
