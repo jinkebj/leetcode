@@ -19,6 +19,8 @@ class SelectionSort {
             for (j = i + 1; j < n; j++) {
                 if (a[j] < a[k]) k = j; // keep smallest elem in a[k]
             }
+
+            // insert smallest elem to make a[0, i] sorted
             if (k != i) {
                 tmp = a[i];
                 a[i] = a[k];

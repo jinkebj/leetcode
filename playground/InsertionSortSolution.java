@@ -14,6 +14,8 @@ class InsertionSort {
         for (int i = 1; i < len; i++) {
             int tmp = a[i];
             int j;
+
+            // a[0, i - 1] is sorted, insert a[i] to make a[0, i] sorted
             for (j = i - 1; j >= 0 && tmp < a[j]; j--) {
                 a[j + 1] = a[j];
             }

@@ -14,7 +14,7 @@ class MergeSort {
         if (left >= right) return;
         int mid = left + (right - left) / 2;
 
-        // 二路归并排序里面有两个sort，多路归并排序里面写多个sort就可以了
+        // 二路归并排序里面有两个sort，多路归并排序需要写多个sort
         sort(a, left, mid);
         sort(a, mid + 1, right);
         merge(a, left, mid, right);

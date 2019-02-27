@@ -13,6 +13,7 @@ class BubbleSort {
         int len = a.length;
         for (int i = 0; i < len - 1; i++) {
             boolean exchange = false;
+            // bubble up the minimal item
             for (int j = len - 1; j > i; j--) {
                 if (a[j - 1] > a[j]) {
                     int tmp = a[j - 1];
