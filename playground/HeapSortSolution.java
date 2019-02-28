@@ -46,4 +46,24 @@ class HeapSort {
             heapify(a, largest, n);
         }
     }
+
+    // heapify函数的非递归版本
+    private static void heapify2(int a[], int start, int n) {
+        int temp = a[start];
+
+        for (int i = 2 * start + 1; i < n; i *= 2) {
+            // 根结点的序号为0而不是1，所以i结点左孩子和右孩子分别为2i+1和2i+2
+            if (i < n - 1 && a[i] < a[i + 1]) { // 左右孩子的比较
+                i++; // i为较大的记录的下标
+            }
+
+            if (temp > a[i]) break; // 左右孩子中获胜者与父亲的比较
+
+            // 将孩子结点上位，则以孩子结点的位置进行下一轮的筛选
+            a[start]= a[i];
+            start = i;
+        }
+
+        a[start]= temp; // 插入最开始不和谐的元素
+    }
 }
