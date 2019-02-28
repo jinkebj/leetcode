@@ -12,6 +12,9 @@ This issue is similar with 3Sum, but don't need to skip duplicate item.
 ```
 
 **Java:**
+
+![](3Sum-P1.jpg)
+
 ```java
 public class Solution {
     public int threeSumClosest(int[] nums, int target) {
@@ -39,38 +42,4 @@ public class Solution {
         return ret;
     }
 }
-```
-
-**C++:**
-
-![](3Sum-P1.jpg)
-
-```c++
-class Solution {
-public:
-    int threeSumClosest(vector<int> &num, int target) {
-        int result = 0;
-        int min_gap = INT_MAX;
-        sort(num.begin(), num.end());
-
-        for (auto a = num.begin(); a < prev(num.end(), 2); a++) {
-            auto b = next(a);
-            auto c = prev(num.end());
-
-            while (b < c) {
-                const int sum = *a + *b + *c;
-                const int gap = abs(sum - target);
-
-                if (gap < min_gap) {
-                    result = sum;
-                    min_gap = gap;
-                }
-
-                if (sum < target) b++;
-                else c--;
-            }
-        }
-        return result;
-    }
-};
 ```

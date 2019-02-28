@@ -24,17 +24,19 @@ Note:
 - 1 <= len(bits) <= 1000.
 - bits[i] is always 0 or 1.
 
+**Analysis:**
+
+When reading from the i-th position, if bits[i] == 0, the next character must have 1 bit; else if bits[i] == 1, the next character must have 2 bits. We increment our read-pointer i to the start of the next character appropriately. At the end, if our pointer is at bits.length - 1, then the last character must have a size of 1 bit.
+
 **Java:**
 ```java
 class Solution {
     public boolean isOneBitCharacter(int[] bits) {
-        int n = bits.length;
         int i = 0;
-        while (i < n - 1) {
-            if (bits[i] == 0) i++;
-            else i += 2;
+        while (i < bits.length - 1) {
+            i += bits[i] + 1;
         }
-        return i == n - 1;
+        return i == bits.length - 1;
     }
 }
 ```
